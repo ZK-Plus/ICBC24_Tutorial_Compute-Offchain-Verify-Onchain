@@ -1,0 +1,6 @@
+import "utils/pack/bool/unpack256" as unpack;
+
+def main(field input, u8 k) -> bool {
+    bool[256] input_bool = unpack(input);
+    return input_bool[k];
+}
