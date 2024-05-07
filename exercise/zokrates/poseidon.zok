@@ -3,6 +3,4 @@ import "hashes/poseidon/poseidon" as poseidon_hash;
 
 def main(field hash ,private field[2] preimage) {
     
-    field digest = poseidon_hash(preimage);
-	assert(digest == hash);
 }
