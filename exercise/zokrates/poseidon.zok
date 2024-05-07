@@ -1,6 +1,7 @@
-// example taken from zokrates documentation https://github.com/Zokrates/ZoKrates/blob/deploy/zokrates_cli/examples/merkleTree/sha256PathProof3.zok
 import "hashes/poseidon/poseidon" as poseidon_hash;
 
 def main(field hash ,private field[2] preimage) {
     
+      //TODO: verify a poseidon hash here
+
 }

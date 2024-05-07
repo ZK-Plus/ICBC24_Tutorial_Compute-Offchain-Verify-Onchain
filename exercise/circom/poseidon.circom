@@ -7,6 +7,8 @@ template verifyHash () {
   signal input a;
   signal input b;
 
+  //TODO: verify a poseidon hash here
+
 }
 
 
