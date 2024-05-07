@@ -1,0 +1,14 @@
+{
+  "name": "poseidon",
+  "version": "1.0.0",
+  "description": "generate and verify a poseidon hash",
+  "main": "poseidon.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "circomlibjs": "^0.1.7"
+  }
+}
