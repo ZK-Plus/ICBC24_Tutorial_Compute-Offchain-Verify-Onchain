@@ -7,13 +7,6 @@ template verifyHash () {
   signal input a;
   signal input b;
 
-  component digest = Poseidon(2);
-
-  digest.inputs[0] <== a;
-  digest.inputs[1] <== b;
-
-  digest.out === hash;
-  log("hash", digest.out);
 }
 
 
