@@ -1,4 +1,0 @@
-
-def main(u32 int, u32 div) -> (u32, u32) {
-    return (int / div, int % div);
-}
