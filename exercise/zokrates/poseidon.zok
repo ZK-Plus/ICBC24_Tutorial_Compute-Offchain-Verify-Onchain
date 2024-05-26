@@ -1,4 +1,4 @@
-import "hashes/poseidon/poseidon" as poseidon_hash;
+import "hashes/poseidon/poseidon" as poseidon;
 
 def main(field hash ,private field[2] preimage) {
     
