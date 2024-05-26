@@ -1,0 +1,33 @@
+import "hashes/sha256/512bitPadded" as hash;
+
+// leave the root out of the struct as all the variables 
+// in the struct are all private and the root is public
+struct MerkleTreeProofStruct<DEPTH> {
+	u32[8] leaf;
+	bool[DEPTH] directionSelector; 
+	u32[DEPTH][8] path;
+}
+
+def select(bool condition, u32[8] left, u32[8] right) -> (u32[8], u32[8]) {
+	return (condition ? right : left, condition ? left : right);
+}
+
+
+def merkleTreeProof<DEPTH>(u32[8] root, MerkleTreeProofStruct<DEPTH> proof) -> bool {
+    // Start from the leaf
+    u32[8] mut digest = proof.leaf;
+
+	// Loop up the tree
+	for u32 i in 0..DEPTH {
+		(u32[8], u32[8]) s = select(proof.directionSelector[i], digest, proof.path[i]);
+		digest = hash(s.0, s.1);
+	}
+
+    return digest == root;
+}
+
+const u32 TREE_DEPTH = 2;
+
+def main(u32[8] tree_root, MerkleTreeProofStruct<TREE_DEPTH> merkle_proof) {
+    assert(merkleTreeProof(tree_root, merkle_proof));
+}
