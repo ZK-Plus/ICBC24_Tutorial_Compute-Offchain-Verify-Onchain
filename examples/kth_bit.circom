@@ -1,7 +1,6 @@
 pragma circom 2.1.8;
 
-include "circomlib/circuits/comparators.circom";
-
+include "utils.circom";
 
 template extractKthBit(n) {
     /*
@@ -32,7 +31,7 @@ template extractKthBit(n) {
         equalityCheck[i].in[1] <== i; // Second input of the equality comparison.
 
         // If i = k, add this bit to runningOutputBitSum; else, there should be no contribution.
-        runningOutputBitSum[i+1] <== runningOutputBitSum[i] + binaryRepresentation[n-i] * equalityCheck[i].out;
+        runningOutputBitSum[i+1] <== runningOutputBitSum[i] + binaryRepresentation[i] * equalityCheck[i].out;
 
         // Iteratively recover the input from its supposed binary representation.
         runningBinarySum += binaryRepresentation[i] * powersOfTwo;
@@ -47,4 +46,4 @@ template extractKthBit(n) {
     outBit <== runningOutputBitSum[n];
 }
 
-component main { public [in, k] } = extractKthBit(253);
+component main = extractKthBit(253);
