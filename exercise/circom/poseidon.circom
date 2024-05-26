@@ -7,13 +7,7 @@ template verifyHash() {
   signal input a;
   signal input b;
 
-  component hasher = Poseidon(2);
-  hasher.inputs[0] <== a;
-  hasher.inputs[1] <== b;
-
-  log("hash: ", hasher.out);
-  hasher.out === hash;
-
+  //TODO: verify a poseidon hash here
 
 }
 
